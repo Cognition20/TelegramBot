@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+      <UserSecretsId>160691e6-71ff-455c-8d46-5f9e6102d1a3</UserSecretsId>
+  </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Anthropic" Version="13.12.0" />
+      <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.20" />
+      <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.20" />
+      <PackageReference Include="Telegram.Bot" Version="22.10.5" />
+    </ItemGroup>
+
+</Project>
