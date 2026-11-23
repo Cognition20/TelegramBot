@@ -19,9 +19,14 @@ jobs:
 
       - name: Build WebJob package
         run: |
+          echo "--- Files in repo ---"
+          find . -name "*.csproj" -o -name "*.sln" | grep -v "/\.git/"
+          CSPROJ=$(find . -name "*.csproj" | head -n 1)
+          if [ -z "$CSPROJ" ]; then echo "csproj not found"; exit 1; fi
+          echo "Using $CSPROJ"
           JOB=stage/App_Data/jobs/continuous/bot
           mkdir -p $JOB
-          dotnet publish Chulii_tg_bot/Chulii_tg_bot/Chulii_tg_bot.csproj -c Release -o $JOB
+          dotnet publish "$CSPROJ" -c Release -o $JOB
           printf 'dotnet Chulii_tg_bot.dll\r\n' > $JOB/run.cmd
           cd stage && zip -r ../webjob.zip .
 
