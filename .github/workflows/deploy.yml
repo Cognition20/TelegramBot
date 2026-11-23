@@ -21,7 +21,7 @@ jobs:
         run: |
           JOB=stage/App_Data/jobs/continuous/bot
           mkdir -p $JOB
-          dotnet publish Chulii_tg_bot.csproj -c Release -o $JOB
+          dotnet publish Chulii_tg_bot/Chulii_tg_bot/Chulii_tg_bot.csproj -c Release -o $JOB
           printf 'dotnet Chulii_tg_bot.dll\r\n' > $JOB/run.cmd
           cd stage && zip -r ../webjob.zip .
 
